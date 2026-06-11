@@ -85,6 +85,12 @@ The diagnostic outputs are actively mapped against international occupational sa
 * **File Upload Component:** Features an asynchronous event handler that takes the `telemetry.txt` file and sends it as a raw multi-part form data stream directly into the Flask backend endpoint.
 * **Dynamic Canvas Hub:** Renders the 180 DPI Matplotlib charts inside an HTML anchor tag (`target="_blank"`). This allows professors or researchers to click anywhere on the data graph to seamlessly scale it up in a brand-new, isolated browser tab for close evaluation.
 
+<img width="806" height="163" alt="Screenshot 2026-06-11 213140" src="https://github.com/user-attachments/assets/1bfbd429-183f-4d4f-b1b0-ee03f1f22b13" />
+
+<img width="658" height="205" alt="Screenshot 2026-06-11 213127" src="https://github.com/user-attachments/assets/c667709a-2a71-48a4-9e48-643f060f58eb" />
+
+
+
 <img width="1920" height="1080" alt="Screenshot (4565)" src="https://github.com/user-attachments/assets/36951c17-2487-4b0a-a72d-9ca85b44d94c" />
 
 ---
