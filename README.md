@@ -11,17 +11,17 @@ The platform bridges localized physical edge sensing with macro-climatic cloud m
 [Localized Room Microclimate]
 │
 ▼
-[ESP8266 Edge Sensor Node] ──(Asynchronous JSON Stream)──> [Live AJAX Web UI Portal]
+[ESP8266 Edge Sensor Node] 
 │
 ▼
-[Flask AI Analytics Core] <───(Direct Multipart File Ingestion)──────┘
+[Flask AI Analytics Core]
 │
 ├─── Ingests Live Regional Dhaka Weather via OpenWeatherMap API
 ├─── Executes Scikit-Learn Multilayer Perceptron (ANN) Classifier
 ├─── Executes Random Forest Regressor Forecast Target Engine
 │
 ▼
-[180 DPI Multi-Vector Diagnostic Visualizations Hub] ──> Standalone Full-Resolution Tab View
+[180 DPI Multi-Vector Diagnostic Visualizations Hub] 
 
 
 ## Scientific Methodology & Theoretical Framework
@@ -100,13 +100,13 @@ The diagnostic outputs are actively mapped against international occupational sa
 ## Repository Asset Layout
 
 ├── models/
-│   ├── ann_model.pkl          # Trained MLP Classifier for Biological Stress Evaluation
-│   └── regressor.pkl          # Trained Random Forest Regressor for Temporal Forecasting
+│   ├── ann_model.pkl          
+│   └── regressor.pkl          
 ├── static/
-│   └── dashboard_analytics.png# Rendered High-Resolution Multi-Vector Visualization Canvas
-├── app.py                     # Python Flask Predictive Analytics Web Backend Engine
-├── index.html                 # Premium HTML5/CSS3 Dashboard User Interface Client
-└── hardware_node.ino          # Native Asynchronous C++ Web Server for ESP8266 Microchips
+│   └── dashboard_analytics.png
+├── app.py                     
+├── index.html                 
+└── hardware_node.ino          
 
 
 ## Quick-Start Deployment Guide
