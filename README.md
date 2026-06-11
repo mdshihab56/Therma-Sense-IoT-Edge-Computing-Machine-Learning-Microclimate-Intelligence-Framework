@@ -158,7 +158,8 @@ Byte 5: The Checksum Byte (8 bits).
 
 5. Mathematical Checksum Verification
 To ensure the data wasn't corrupted by electrical noise along the wire, the ESP8266 running your firmware runs a verification check:
-$$\text{Byte 1} + \text{Byte 2} + \text{Byte 3} + \text{Byte 4} = \text{Byte 5 (Checksum)}$$
+
+### $$\text{Byte 1} + \text{Byte 2} + \text{Byte 3} + \text{Byte 4} = \text{Byte 5 (Checksum)}$$
 
 ### AI Ingestion Portal Setup
 1.  Clone this repository asset matrix onto your local execution path:
