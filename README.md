@@ -91,6 +91,13 @@ The diagnostic outputs are actively mapped against international occupational sa
 
 <img width="1920" height="1080" alt="Screenshot (4565)" src="https://github.com/user-attachments/assets/36951c17-2487-4b0a-a72d-9ca85b44d94c" />
 
+
+## Fixed Parameters
+
+1. Medical Confort Threshold (20-25°C)
+2. Clinical Heat Stress Alert(30°C)
+3. Extreme Clinical Hyperthermia Boundary (35°C)
+4. Upper Normal Physiological Bounds (25°C)
 ---
 
 ## Repository Asset Layout
