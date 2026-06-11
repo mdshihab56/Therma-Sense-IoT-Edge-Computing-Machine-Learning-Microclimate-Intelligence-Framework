@@ -79,6 +79,9 @@ The diagnostic outputs are actively mapped against international occupational sa
 ### 1. The Edge Layer (`hardware_node.ino`)
 * **`setup()` Module:** Initializes the ESP8266 serial register clock ($115200\text{ Baud}$), starts the physical DHT sensor interface, coordinates the Wi-Fi connection loop, and spins up the native network server.
 * **`loop()` Module:** Implements a non-blocking execution block using millis(). Every 5 seconds, it reads raw physical signals from the DHT11 sensor, updates internal telemetry states, and appends values to a persistent string buffer (`csvDataLog`).
+
+  <img width="1920" height="1080" alt="Screenshot (4564)" src="https://github.com/user-attachments/assets/2efae393-8651-4c74-811e-a7b16127d432" />
+
 * **`handleLiveDataRoute()` Endpoint (`/liveData`):** Compiles ongoing environmental measurements into a lightweight JSON payload. This allows background queries to access live numbers directly from chip memory.
 * **`handleRootRoute()` Module:** Serves the client-side user interface. It embeds an automated **JavaScript AJAX** polling routine that queries the `/liveData` API endpoint every 3 seconds, updating frontend elements dynamically without page reloads. It also runs a native clock widget with an interactive 12-hour/24-hour display toggle.
 
@@ -94,6 +97,8 @@ The diagnostic outputs are actively mapped against international occupational sa
 ### 3. The Analytics Frontend Portal Component (`index.html`)
 * **File Upload Component:** Features an asynchronous event handler that takes the `telemetry.txt` file and sends it as a raw multi-part form data stream directly into the Flask backend endpoint.
 * **Dynamic Canvas Hub:** Renders the 180 DPI Matplotlib charts inside an HTML anchor tag (`target="_blank"`). This allows professors or researchers to click anywhere on the data graph to seamlessly scale it up in a brand-new, isolated browser tab for close evaluation.
+
+<img width="1920" height="1080" alt="Screenshot (4565)" src="https://github.com/user-attachments/assets/36951c17-2487-4b0a-a72d-9ca85b44d94c" />
 
 ---
 
