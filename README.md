@@ -108,10 +108,57 @@ The diagnostic outputs are actively mapped against international occupational sa
 
 ## Quick-Start Deployment Guide
 
-### Hardware Installation
-1.  Pinout array mapping: **DHT11 VCC** to `3.3V`, **GND** to `GND`, and **Data** to Digital Pin `D2`.
-2.  Open `hardware_node.ino` inside the Arduino IDE, insert your local Wi-Fi SSID/Password credentials, and compile to the chip.
-3.  Access your live hardware web controller portal via the local IP address assigned to the board.
+### Hardware Integration Section: Power Distribution & Single-Bus Data Ingestion Protocol
+
+This section details the physical layer engineering, power architecture, and low-level serialized data transfer protocol implemented between the environmental telemetry edge sensor and the microcontroller unit.
+
+### Step 1: Power Distribution Architecture
+The ESP8266 microchip operates strictly on a 3.3V Logic Level. Supplying 5V directly to the microchip's GPIO data pins or its native VCC lines will cause thermal runaway and permanently damage the silicon wafer layout of the chip.
+
+### Powering the Microcontroller Node: 
+Via USB (Development Stage): When your ESP8266 board (like a NodeMCU or WeMos D1 Mini) is plugged into a laptop via a micro-USB cable, it draws 5V from the USB port. Onboard the chip is a Low-Dropout (LDO) voltage regulator (typically the AMS1117 chip) that steps down the incoming 5V to a clean, stable 3.3V.
+
+Via External Battery/Adapter (Deployment Stage): You can feed an external power source (such as a 5V power bank or a 4V Lithium-Ion cell) directly into the 5V/VIN pin of the board, which routes through the onboard regulator to power the system safely.
+
+### Step 2: The Physical Hardware Interconnect (Pin Mapping)
+Your hardware configuration requires exactly 3 jumper wires to link the edge processor to the physical environment sensor:
+
+| DHT11 Pin Label | Wire Function | ESP8266 Hardware Target Pin |
+|-----------------|---------------|-----------------------------|
+| **VCC (Power Input)** | Connects the positive power rail | **3V3 Pin (3.3V Output)** |
+| **GND (Ground Reference)** | Connects the negative ground return path | **GND Pin (Common Ground)** |
+| **DATA (Signal Out)** | Transmits serialized data pulses | **D2 (GPIO 4)** |
+
+If you are using a bare, raw DHT11 sensor module instead of a pre-assembled 3-pin breakout PCB, you must place a 4.7kΩ to 10kΩ pull-up resistor bridging the space between the DHT11 VCC line and the DATA line. Pre-assembled breakout boards usually have this resistor already soldered onto their tiny PCB layout.
+
+### Step 3: How the Data Transfer Works Mechanically
+When professors ask, "How does a single data pin send both temperature and humidity information over a single wire?" explain it using Single-Bus Time-Domain Serial Protocols.
+
+1. The Handshake Protocol (Start Signal)
+The data line is normally held high (3.3V) by the pull-up resistor. When your code triggers a read, the ESP8266 pulls the D2 pin low for at least 18 milliseconds, then pulls it high and waits.
+This serves as a wake-up call to the DHT11 sensor
+
+2. Sensor Response
+The DHT11 catches this pulse and pulls the line low for 80 microseconds, then releases it high for another 80 microseconds. This is the hardware confirmation handshake.
+
+3. The 40-Bit Binary Stream Packet Transfer
+The DHT11 then transmits exactly 40 bits (5 bytes) of data sequentially down the wire. To distinguish between a binary 0 and a binary 1, the protocol relies on pulse width timing:
+
+Every bit starts with a 50-microsecond low voltage signal.
+Binary 0: The low signal is followed by a high voltage signal lasting only 26 to 28 microseconds.
+Binary 1: The low signal is followed by a high voltage signal lasting 70 microseconds.
+
+4. Structuring the Payload & Checksum Integrity
+The 40 bits arriving at your ESP8266 microcontroller are organized as follows:
+Byte 1: Integral Relative Humidity data (8 bits)
+Byte 2: Decimal Relative Humidity data (8 bits - always zero on DHT11)
+Byte 3: Integral Temperature data (8 bits)
+Byte 4: Decimal Temperature data (8 bits - always zero on DHT11)
+Byte 5: The Checksum Byte (8 bits). 
+
+5. Mathematical Checksum Verification
+To ensure the data wasn't corrupted by electrical noise along the wire, the ESP8266 running your firmware runs a verification check:
+$$\text{Byte 1} + \text{Byte 2} + \text{Byte 3} + \text{Byte 4} = \text{Byte 5 (Checksum)}$$
 
 ### AI Ingestion Portal Setup
 1.  Clone this repository asset matrix onto your local execution path:
