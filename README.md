@@ -2,7 +2,7 @@
 
 ThermaSense is an integrated, full-stack Internet of Things (IoT) hardware platform and Machine Learning (ML) analytical pipeline. It is specifically engineered to address dense urban health challenges, microclimatic heat stress risks, and indoor thermal instability in high-density tropical regions like Dhaka, Bangladesh.
 
-The platform bridges localized physical edge sensing with macro-climatic cloud meteorology via the OpenWeatherMap API. It leverages dual artificial intelligence models—an Artificial Neural Network (ANN) Multilayer Perceptron for classification and a Random Forest Regressor for temporal trend forecasting—to evaluate human health thresholds based on international occupational safety limits (ASHRAE Standard 55 / ISO 7730).
+The platform bridges localized physical edge sensing with macro-climatic cloud meteorology via the OpenWeatherMap API. It leverages dual artificial intelligence models .An Artificial Neural Network (ANN) Multilayer Perceptron for classification and a Random Forest Regressor for temporal trend forecasting to evaluate human health thresholds based on international occupational safety limits (ASHRAE Standard 55 / ISO 7730).
 
 
 
