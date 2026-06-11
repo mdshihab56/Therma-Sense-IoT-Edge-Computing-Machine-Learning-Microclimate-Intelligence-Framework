@@ -8,20 +8,7 @@ The platform bridges localized physical edge sensing with macro-climatic cloud m
 
 ## End-to-End System Architecture
 
-[Localized Room Microclimate]
-│
-▼
-[ESP8266 Edge Sensor Node] 
-│
-▼
-[Flask AI Analytics Core]
-│
-├─── Ingests Live Regional Dhaka Weather via OpenWeatherMap API
-├─── Executes Scikit-Learn Multilayer Perceptron (ANN) Classifier
-├─── Executes Random Forest Regressor Forecast Target Engine
-│
-▼
-[180 DPI Multi-Vector Diagnostic Visualizations Hub] 
+<img width="710" height="455" alt="Screenshot 2026-06-11 212315" src="https://github.com/user-attachments/assets/17e3e5a6-89a5-4601-935f-01b380700b28" />
 
 
 ## Scientific Methodology & Theoretical Framework
@@ -104,14 +91,8 @@ The diagnostic outputs are actively mapped against international occupational sa
 
 ## Repository Asset Layout
 
-├── models/
-│   ├── ann_model.pkl          
-│   └── regressor.pkl          
-├── static/
-│   └── dashboard_analytics.png
-├── app.py                     
-├── index.html                 
-└── hardware_node.ino          
+<img width="384" height="272" alt="Screenshot 2026-06-11 212348" src="https://github.com/user-attachments/assets/60b9676e-1a4a-4bdc-b9d9-6409818e2e6f" />
+
 
 
 ## Quick-Start Deployment Guide
