@@ -65,6 +65,11 @@ The diagnostic outputs are actively mapped against international occupational sa
 
 ### 1. The Edge Layer (`hardware_node.ino`)
 * **`setup()` Module:** Initializes the ESP8266 serial register clock ($115200\text{ Baud}$), starts the physical DHT sensor interface, coordinates the Wi-Fi connection loop, and spins up the native network server.
+
+  **Serial Monitor**
+  <img width="1050" height="549" alt="Screenshot 2026-06-11 231626" src="https://github.com/user-attachments/assets/3823e582-710a-4630-ab43-7ae3954335e2" />
+
+  
 * **`loop()` Module:** Implements a non-blocking execution block using millis(). Every 5 seconds, it reads raw physical signals from the DHT11 sensor, updates internal telemetry states, and appends values to a persistent string buffer (`csvDataLog`).
 
   <img width="1920" height="1080" alt="Screenshot (4564)" src="https://github.com/user-attachments/assets/2efae393-8651-4c74-811e-a7b16127d432" />
