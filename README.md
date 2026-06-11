@@ -37,7 +37,7 @@ By pairing local telemetry with live regional weather, the system isolates the *
 Once the data vector is compiled into a standardized $1 \times 4$ array ($[T_{in}, H_{in}, T_{out}, H_{out}]$), it is passed into two separate machine learning models operating in parallel:
 
 #### 1. The Classifier: Multilayer Perceptron (ANN)
-The classification engine consists of a feedforward Artificial Neural Network (ANN) optimized via Scikit-Learn. The input layer distributes the 4-feature vector across densely connected hidden layers mapping non-linear mathematical combinations. Each artificial neuron computes a weighted sum of its inputs, adds a baseline bias parameter ($z = \sum w_i x_i + b$), and passes the result through a Rectified Linear Unit (ReLU) activation function:
+The classification engine consists of a feedforward Artificial Neural Network (ANN) optimized via Scikit-Learn. The input layer distributes the 4-feature vector across densely connected hidden layers mapping non-linear mathematical combinations. Each artificial neuron computes a weighted sum of its inputs, adds a baseline bias parameter **($z = \sum w_i x_i + b$)**, and passes the result through a Rectified Linear Unit (ReLU) activation function:
 $$\text{f}(z) = \max(0, z)$$
 
 This structural mapping is critical for environmental health processing. The human body cools itself via latent heat of vaporization (sweating). When relative humidity crosses critical thresholds, sweat cannot efficiently evaporate into the saturated air, triggering rapid spikes in core body temperatures even at moderate ambient readings. 
@@ -47,8 +47,8 @@ The neural network maps these highly non-linear temperature-humidity dependencie
 #### 2. The Forecaster: Random Forest Regressor
 While the neural network evaluates immediate biological threats, an ensemble Random Forest Regressor projects environmental shifts across a **+4-Hour Predictive Horizon**. 
 
-During execution, the input feature vector is introduced to hundreds of independent decision trees compiled via bootstrap aggregation (bagging). Each tree steps down conditional mathematical split points based on historical trends (e.g., assessing if $H_{in} > 75\%$). The individual regression trees output an independent numerical scalar, and the ensemble engine averages the results across the entire forest structure:
-$$y = \frac{1}{N}\sum_{i=1}^{N} T_i(x)$$
+During execution, the input feature vector is introduced to hundreds of independent decision trees compiled via bootstrap aggregation (bagging). Each tree steps down conditional mathematical split points based on historical trends (e.g., assessing if **$H_{in} > 75\%$**). The individual regression trees output an independent numerical scalar, and the ensemble engine averages the results across the entire forest structure:
+**$$y = \frac{1}{N}\sum_{i=1}^{N} T_i(x)$$**
 
 This ensemble average represents the projected +4-Hour future temperature value. Averaging out independent branch variance makes the system highly resilient against noisy data artifacts or physical sensor inaccuracies.
 
