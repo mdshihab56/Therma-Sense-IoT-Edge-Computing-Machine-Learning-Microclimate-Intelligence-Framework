@@ -1,3 +1,5 @@
+<img width="2663" height="1333" alt="Github social template Therma Sense" src="https://github.com/user-attachments/assets/499fa76a-4fd1-4def-988a-5bde876414a9" />
+
 # ThermaSense: IoT Edge Computing & Machine Learning Microclimate Intelligence Framework
 
 ThermaSense is an integrated, full-stack Internet of Things (IoT) hardware platform and Machine Learning (ML) analytical pipeline. It is specifically engineered to address dense urban health challenges, microclimatic heat stress risks, and indoor thermal instability in high-density tropical regions like Dhaka, Bangladesh.
