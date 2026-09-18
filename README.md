@@ -183,3 +183,14 @@ To ensure the data wasn't corrupted by electrical noise along the wire, the ESP8
     python app.py
     ```
 5.  Access the master analytics view panel at `http://127.0.0.1:5000`
+
+### Data Analytic & Visualization
+<img width="1789" height="985" alt="1" src="https://github.com/user-attachments/assets/e52851d3-66bc-4550-abfa-25e4d19320c0" />
+<img width="1039" height="890" alt="2" src="https://github.com/user-attachments/assets/2722db21-c84f-4e69-8b21-7363ee39d03a" />
+<img width="1989" height="592" alt="3" src="https://github.com/user-attachments/assets/4f5561b7-38a8-4e42-92eb-843185e24cf9" />
+<img width="1290" height="886" alt="5" src="https://github.com/user-attachments/assets/691ae2bc-ca4b-42e9-8268-c900e597aa13" />
+<img width="1389" height="543" alt="6" src="https://github.com/user-attachments/assets/0886b81d-b34c-496e-9268-62d2fa103a59" />
+
+
+
+
