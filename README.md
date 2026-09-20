@@ -11,7 +11,6 @@ The platform bridges localized physical edge sensing with macro-climatic cloud m
 
 <img width="710" height="455" alt="Screenshot 2026-06-11 212315" src="https://github.com/user-attachments/assets/17e3e5a6-89a5-4601-935f-01b380700b28" />
 
-
 ## Scientific Methodology & Theoretical Framework
 
 The ThermaSense framework operates as a decoupled edge-to-cloud predictive analytics pipeline. The underlying scientific methodology is divided into four distinct phases:
